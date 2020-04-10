@@ -14,12 +14,12 @@ public interface AccountMapper {
         primaryKey 即为 account id 如果返回的值为null说明查询的账号不存在
         要查询转账的金额，以及余额都可以通过返回的Account来查询其余额（,getMoney()）
      */
-    Account selectByPrimaryKey(Integer aid);
+    Account selectOne(String aid, String apwd, int money);
 
     /**
      *
      * @param record: 使用constructor创建除了money有值的Account对象，money 的值为更新后的值
      * @return
      */
-    int updateByPrimaryKeySelective(Account record);
+    int updateByPrimaryKeySelective(String uid, int money);
 }

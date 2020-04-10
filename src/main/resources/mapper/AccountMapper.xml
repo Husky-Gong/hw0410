@@ -14,26 +14,26 @@
     aid, apwd, money, `uid`
   </sql>
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectOne" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select
     <include refid="Base_Column_List" />
     from t_account
     where aid = #{aid}
+    <if test="apwd != null ">
+      and apwd = #{apwd}
+    </if>
+    <if test="money != 0">
+    and money >= #{money}
+  </if>
   </select>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.zx.domain.Account">
+  <update id="updateByPrimaryKeySelective">
     <!--@mbg.generated-->
     update t_account
     <set>
-      <if test="apwd != null">
-        apwd = #{apwd},
-      </if>
-      <if test="money != null">
-        money = #{money},
-      </if>
-      <if test="uid != null">
-        `uid` = #{uid},
+      <if test="money != 0">
+        money = money + #{money},
       </if>
     </set>
     where aid = #{aid}
