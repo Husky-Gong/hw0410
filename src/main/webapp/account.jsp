@@ -39,7 +39,7 @@
                     alert("Wrong");
                 }else{
 
-                    $.post("zx/AccountServlet?method=checkInAcc",{inAcc:inAcc},function (result) {
+                    $.post("zx/AccountServlet?service=checkInAcc",{inAcc:inAcc},function (result) {
 
                         if(result){
                             $("#span_inAcc").html("√ legal").css("color","green");
@@ -61,7 +61,7 @@
 
                 var money =$("#money").val();
 
-                $.post("zx/AccountServlet?method=checkMoney",{outAcc:outAcc,pwd:pwd,money:money},function (result) {
+                $.post("zx/AccountServlet?service=checkMoney",{outAcc:outAcc,pwd:pwd,money:money},function (result) {
 
                     if(result){
 
@@ -86,7 +86,7 @@
 
                 if(outAcc!=""&&pwd!=""){
                     //发送ajax请求进行信息校验
-                    $.post("zx/AccountServlet?method=checkOutAcc",{outAcc:outAcc,pwd:pwd},function (result) {
+                    $.post("zx/AccountServlet?service=checkOutAcc",{outAcc:outAcc,pwd:pwd},function (result) {
 
                         if(result){
 
@@ -121,18 +121,18 @@
 <hr/>
 <div style="width: 400px;border:  0px solid  red;margin-left: 300px">
 
-    <form action="zx/AccountServlet?method=transfer" method="post">
+    <form action="zx/AccountServlet?service=transfer" method="post">
         <p>
-            转账账户:<input type="text" name="outAcc" id="outAcc"/>${requestScope.msg}
+            OutAcc:<input type="text" name="outAcc" id="outAcc"/>${requestScope.msg}
         </p>
         <p>
-            转账密码:<input type="text" name="pwd" id="pwd"/><span id="span_pwd"></span>
+            Password:<input type="text" name="pwd" id="pwd"/><span id="span_pwd"></span>
         </p>
         <p>
-            转账金额:<input type="text" name="money" id="money"/><span id="span_money"></span>
+            Money:<input type="text" name="money" id="money"/><span id="span_money"></span>
         </p>
         <p>
-            收款账户:<input type="text" name="inAcc" id="inAcc"/><span id="span_inAcc">
+            InAcc:<input type="text" name="inAcc" id="inAcc"/><span id="span_inAcc">
         </p>
         <p>
             <input type="submit" value="Confirm"/>
