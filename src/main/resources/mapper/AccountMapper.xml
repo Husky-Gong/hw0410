@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.zx.domain.Account">
+    <!--@mbg.generated-->
+    <!--@Table t_account-->
+    <id column="aid" property="aid" />
+    <result column="apwd" property="apwd" />
+    <result column="money" property="money" />
+    <result column="uid" property="uid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    aid, apwd, money, `uid`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_account
+    where aid = #{aid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_account
+    where aid = #{aid}
+  </delete>
+  <insert id="insert" keyColumn="aid" keyProperty="aid" parameterType="com.zx.domain.Account" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_account (apwd, money, `uid`)
+    values (#{apwd}, #{money}, #{uid})
+  </insert>
+  <insert id="insertSelective" keyColumn="aid" keyProperty="aid" parameterType="com.zx.domain.Account" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="apwd != null">
+        apwd,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="apwd != null">
+        #{apwd},
+      </if>
+      <if test="money != null">
+        #{money},
+      </if>
+      <if test="uid != null">
+        #{uid},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zx.domain.Account">
+    <!--@mbg.generated-->
+    update t_account
+    <set>
+      <if test="apwd != null">
+        apwd = #{apwd},
+      </if>
+      <if test="money != null">
+        money = #{money},
+      </if>
+      <if test="uid != null">
+        `uid` = #{uid},
+      </if>
+    </set>
+    where aid = #{aid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zx.domain.Account">
+    <!--@mbg.generated-->
+    update t_account
+    set apwd = #{apwd},
+      money = #{money},
+      `uid` = #{uid}
+    where aid = #{aid}
+  </update>
+</mapper>
