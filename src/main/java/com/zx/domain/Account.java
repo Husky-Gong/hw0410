@@ -1,6 +1,8 @@
 package com.zx.domain;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private Integer aid;
 
     private String apwd;
@@ -8,6 +10,16 @@ public class Account {
     private Double money;
 
     private Integer uid;
+
+    public Account() {
+    }
+
+    public Account(Integer aid, String apwd, Double money, Integer uid) {
+        this.aid = aid;
+        this.apwd = apwd;
+        this.money = money;
+        this.uid = uid;
+    }
 
     public Integer getAid() {
         return aid;
@@ -39,5 +51,15 @@ public class Account {
 
     public void setUid(Integer uid) {
         this.uid = uid;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "aid=" + aid +
+                ", apwd='" + apwd + '\'' +
+                ", money=" + money +
+                ", uid=" + uid +
+                '}';
     }
 }
