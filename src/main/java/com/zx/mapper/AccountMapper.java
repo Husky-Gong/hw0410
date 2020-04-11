@@ -22,5 +22,5 @@ public interface AccountMapper {
      * @param record: 使用constructor创建除了money有值的Account对象，money 的值为更新后的值
      * @return
      */
-    int updateByPrimaryKeySelective(String uid, int money);
+    int updateByPrimaryKeySelective(@Param("aid") String uid,@Param("money") int money);
 }
