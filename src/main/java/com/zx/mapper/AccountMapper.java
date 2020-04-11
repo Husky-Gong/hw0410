@@ -1,6 +1,7 @@
 package com.zx.mapper;
 
 import com.zx.domain.Account;
+import org.apache.ibatis.annotations.Param;
 
 /*
 1. 校验转账账户是否正确
@@ -14,7 +15,7 @@ public interface AccountMapper {
         primaryKey 即为 account id 如果返回的值为null说明查询的账号不存在
         要查询转账的金额，以及余额都可以通过返回的Account来查询其余额（,getMoney()）
      */
-    Account selectOne(String aid, String apwd, int money);
+    Account selectOne(@Param("aid") String aid,@Param("apwd") String apwd,@Param("money") int money);
 
     /**
      *

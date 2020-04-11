@@ -27,7 +27,7 @@
 
 
             /**********校验收款账号信息*****/
-            $("#outAcc").blur(function () {
+            $("#inAcc").blur(function () {
 
                 //获得收款人卡号
                 var  inAcc=$("#inAcc").val();
@@ -42,10 +42,10 @@
                     $.post("zx/AccountServlet?service=checkInAcc",{inAcc:inAcc},function (result) {
 
                         if(result){
-                            $("#span_inAcc").html("√ legal").css("color","green");
+                            $("#span_inAcc").html("legal").css("color","green");
                             flag1=true;
                         }else {
-                            $("#span_inAcc").html("× illegal").css("color","red");
+                            $("#span_inAcc").html("illegal").css("color","red");
                         }
 
                     },"json");
@@ -65,10 +65,10 @@
 
                     if(result){
 
-                        $("#span_money").html("√ Enough").css("color","green");
+                        $("#span_money").html("Enough").css("color","green");
                         flag2=true;
                     }else {
-                        $("#span_money").html("× Not enough").css("color","red");
+                        $("#span_money").html("Not enough").css("color","red");
                     }
 
                 },"json")
@@ -90,10 +90,10 @@
 
                         if(result){
 
-                            $("#span_pwd").html("√ Legal").css("color","green");
+                            $("#span_pwd").html("Legal").css("color","green");
                             flag3=true;
                         }else {
-                            $("#span_pwd").html("× Illegal").css("color","red");
+                            $("#span_pwd").html("Illegal").css("color","red");
                         }
 
                     },"json")
@@ -132,7 +132,7 @@
             Money:<input type="text" name="money" id="money"/><span id="span_money"></span>
         </p>
         <p>
-            InAcc:<input type="text" name="inAcc" id="inAcc"/><span id="span_inAcc">
+            InAcc:<input type="text" name="inAcc" id="inAcc"/><span id="span_inAcc"/>
         </p>
         <p>
             <input type="submit" value="Confirm"/>
